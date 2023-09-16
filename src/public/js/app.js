@@ -3,14 +3,14 @@ const messageForm = document.querySelector('form');
 const socket = new WebSocket(`ws://${window.location.host}`);
 
 socket.addEventListener("open", () => {
-    console.log("Connected to Browser ✔");
+    console.log("Connected to Browser ✅");
 });
 
 socket.addEventListener("message", message => {
     console.log("New message: ", message.data);
     const li = document.createElement("li");
     li.innerText = message.data;
-    messageList.prepend(li);
+    messageList.append(li);
 })
 
 socket.addEventListener("close", () => {
